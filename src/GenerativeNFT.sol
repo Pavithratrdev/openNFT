@@ -67,6 +67,18 @@ contract GenerativeNFT {
                     '   <text style="transform:matrix(1,0,0,1,255,588)">'
                     '      <tspan x="0" y="0" class="d">Commit</tspan>'
                     "   </text>"
+                    "<!-- Commit hash -->"
+                    '   <text style="transform:matrix(1,0,0,1,355,588)">'
+                    '      <tspan x="0" y="0" class="e">',
+                    data.commitHash,
+                    "   </tspan>"
+                    "   </text>"
+                    '   <text style="transform:matrix(1,0,0,1,274,503)">'
+                    '      <tspan x="0" y="0" style="font-size:37px;fill:#7ada78;font-weight:400;font-family:&amp;quot">+</tspan>'
+                    "   </text>"
+                    '   <text style="transform:matrix(1,0,0,1,381.5,514)">'
+                    '      <tspan x="0" y="0" style="font-size:80px;fill:#f84565;font-weight:400;font-family:&amp;quot">-</tspan>'
+                    "   </text>"
                     "   <!-- Additions -->"
                     '   <text style="transform:matrix(1,0,0,1,303,502)">'
                     '      <tspan x="0" y="0" class="h">',
@@ -117,9 +129,9 @@ contract GenerativeNFT {
                     '      <tspan y="0" class="l" />'
                     "   </text>"
                     '   <text style="transform:matrix(1,0,0,1,254,732)">'
-                    '      <tspan x="0" y="0" class="k">',
+                    '      <tspan x="0" y="0" class="k">@',
                     data.repositoryName,
-                    "      </tspan>"
+                    "/      </tspan>"
                     '      <tspan y="0" class="k" />'
                     "   </text>"
                     '   <text style="transform:matrix(1,0,0,1,254,290)">'

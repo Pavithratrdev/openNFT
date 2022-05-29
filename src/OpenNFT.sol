@@ -3,6 +3,7 @@ pragma solidity 0.8.14;
 
 import "solmate/tokens/ERC721.sol";
 import "./GenerativeNFT.sol";
+import "base64/base64.sol";
 
 contract OpenNFT is ERC721, GenerativeNFT {
     uint256 public currentTokenId;
@@ -45,6 +46,22 @@ contract OpenNFT is ERC721, GenerativeNFT {
         override
         returns (string memory)
     {
-        return string(abi.encodePacked("data:application/json;base64,"));
+        return
+            string(
+                abi.encodePacked(
+                    "data:application/json;base64,",
+                    Base64.encode(
+                        bytes(
+                            abi.encodePacked(
+                                '{"name":"OpenNFT",',
+                                '"image":"data:image/svg+xml;base64,',
+                                Base64.encode(bytes(generateSVG(tokenId))),
+                                '", "description": "Open source PRs freshly minted as NFTs",',
+                                '"}'
+                            )
+                        )
+                    )
+                )
+            );
     }
 }
