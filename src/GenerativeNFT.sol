@@ -13,7 +13,7 @@ contract GenerativeNFT {
         // Github respository name.
         string repositoryName;
         // Pull request ID.
-        uint8 prId;
+        uint16 prId;
         // The title of the pull request submitted.
         string prTitle;
         // Author (Github username) of the person who submitted the PR.

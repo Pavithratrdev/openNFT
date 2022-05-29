@@ -4,13 +4,37 @@ pragma solidity 0.8.14;
 import "solmate/tokens/ERC721.sol";
 import "./GenerativeNFT.sol";
 
-contract NFT is ERC721, GenerativeNFT {
+contract OpenNFT is ERC721, GenerativeNFT {
     uint256 public currentTokenId;
 
     constructor() ERC721("Open NFT", "OPEN") {}
 
-    function mintTo(address recipient) public payable returns (uint256) {
+    function mintTo(
+        address recipient,
+        string memory accountName,
+        string memory repositoryName,
+        uint16 prId,
+        string memory prTitle,
+        string memory author,
+        string memory commitHash,
+        uint16 linesAdded,
+        uint16 linesRemoved,
+        string memory primaryLanguage,
+        string memory repositoryStarsCount
+    ) public payable returns (uint256) {
         uint256 newItemId = ++currentTokenId;
+        achievements[newItemId] = MetaData(
+            accountName,
+            repositoryName,
+            prId,
+            prTitle,
+            author,
+            commitHash,
+            linesAdded,
+            linesRemoved,
+            primaryLanguage,
+            repositoryStarsCount
+        );
         _safeMint(recipient, newItemId);
         return newItemId;
     }
