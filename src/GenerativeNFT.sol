@@ -2,6 +2,7 @@
 pragma solidity 0.8.14;
 
 import "solmate/tokens/ERC721.sol";
+import "openzeppelin-contracts/contracts/utils/Strings.sol";
 
 contract GenerativeNFT {
     // Mapping from tokenId to metadata.
@@ -82,20 +83,20 @@ contract GenerativeNFT {
                     "   <!-- Additions -->"
                     '   <text style="transform:matrix(1,0,0,1,303,502)">'
                     '      <tspan x="0" y="0" class="h">',
-                    data.linesAdded,
+                    Strings.toString(data.linesAdded),
                     "      </tspan>"
                     "   </text>"
                     "   <!-- Subtraction -->"
                     '   <text style="transform:matrix(1,0,0,1,416,502)">'
                     '      <tspan x="0" y="0" class="h">',
-                    data.linesRemoved,
+                    Strings.toString(data.linesRemoved),
                     "      </tspan>"
                     "   </text>"
                     "   <!-- Account Name -->"
                     '   <text style="transform:matrix(1,0,0,1,253,681)">'
-                    '      <tspan x="0" y="0" class="h">',
+                    '      <tspan x="0" y="0" class="h">@',
                     data.accountName,
-                    "      </tspan>"
+                    "/      </tspan>"
                     "   </text>"
                 ),
                 abi.encodePacked(
@@ -115,7 +116,7 @@ contract GenerativeNFT {
                     "   <!-- Pull request ID -->"
                     '   <text style="transform:matrix(1,0,0,1,267,197)">'
                     '      <tspan x="0" y="0" class="k">#',
-                    data.prId
+                    Strings.toString(data.prId)
                 ),
                 abi.encodePacked(
                     "</tspan>"
@@ -129,9 +130,9 @@ contract GenerativeNFT {
                     '      <tspan y="0" class="l" />'
                     "   </text>"
                     '   <text style="transform:matrix(1,0,0,1,254,732)">'
-                    '      <tspan x="0" y="0" class="k">@',
+                    '      <tspan x="0" y="0" class="k">',
                     data.repositoryName,
-                    "/      </tspan>"
+                    "      </tspan>"
                     '      <tspan y="0" class="k" />'
                     "   </text>"
                     '   <text style="transform:matrix(1,0,0,1,254,290)">'
